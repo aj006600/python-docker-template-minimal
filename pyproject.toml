@@ -1,0 +1,24 @@
+[project]
+name = "ytc-python-docker-template-minimal"
+version = "0.1.0"
+description = "Docker + docker compose + GitHub CI/CD 範本（uv 管理相依）"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.34.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+    "httpx>=0.28.1",
+]
+
+[tool.uv]
+# app 直接以 uvicorn 執行，不需打包成 wheel 套件
+package = false
+
+[tool.pytest.ini_options]
+# 非套件模式：讓 pytest 能從專案根目錄匯入 app
+pythonpath = ["."]
