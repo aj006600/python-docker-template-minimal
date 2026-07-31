@@ -45,3 +45,14 @@ ghcr.io/<your-account>/ytc-python-docker-template-minimal:<git-sha>
 ```
 
 > 註：GHCR 映像名稱須為小寫，帳號名含大寫時要另做處理。
+
+## 修改方式
+
+`main` 已鎖：不能直接 push，任何修改都要走 PR 且 CI 綠燈才能 merge。
+
+```bash
+git checkout -b fix/xxx
+# 改、commit、git push -u origin fix/xxx
+gh pr create --fill
+gh pr merge --squash    # CI 綠燈後自己就能 merge（approvals = 0）
+```
