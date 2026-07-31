@@ -1,5 +1,5 @@
 [project]
-name = "ytc-python-docker-template-minimal"
+name = "python-docker-template-minimal"
 version = "0.1.0"
 description = "Docker + docker compose + GitHub CI/CD 範本（uv 管理相依）"
 readme = "README.md"
