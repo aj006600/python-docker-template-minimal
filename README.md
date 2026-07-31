@@ -1,4 +1,4 @@
-# ytc-python-docker-template-minimal
+# python-docker-template-minimal
 
 Python 服務容器化的**最精簡**範本：Docker + docker compose + GitHub Actions CI/CD。
 相依以 [uv](https://docs.astral.sh/uv/) 管理，範例應用為 FastAPI 服務（`/`、`/health`）。
@@ -40,8 +40,8 @@ docker compose up --build              # http://localhost:8000
 用內建 `GITHUB_TOKEN`，不需額外設定 secret。映像位置：
 
 ```
-ghcr.io/<your-account>/ytc-python-docker-template-minimal:latest
-ghcr.io/<your-account>/ytc-python-docker-template-minimal:<git-sha>
+ghcr.io/<your-account>/python-docker-template-minimal:latest
+ghcr.io/<your-account>/python-docker-template-minimal:<git-sha>
 ```
 
 > 註：GHCR 映像名稱須為小寫，帳號名含大寫時要另做處理。
