@@ -13,7 +13,7 @@ Python 服務容器化的**最精簡**範本：Docker + docker compose + GitHub 
 ├── tests/test_main.py          # pytest 測試
 ├── .github/workflows/ci-cd.yml # CI 測試 + CD 推送映像到 GHCR
 ├── Dockerfile                  # 單階段（uv 官方映像）、非 root
-├── docker-compose.yml          # build + ports
+├── compose.yaml                # build + ports
 ├── pyproject.toml              # 專案定義（非套件模式）
 └── uv.lock                     # 鎖定相依（請提交進 git）
 ```
