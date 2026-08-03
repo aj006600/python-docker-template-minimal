@@ -46,6 +46,23 @@ ghcr.io/<your-account>/python-docker-template-minimal:<git-sha>
 
 > 註：GHCR 映像名稱須為小寫，帳號名含大寫時要另做處理。
 
+## 疑難排解：埠衝突
+
+`docker compose up` 綁 **8000** 埠。若看到：
+
+```
+Bind for 0.0.0.0:8000 failed: port is already allocated
+```
+
+代表 8000 已被占用。排查：
+
+```bash
+lsof -nP -iTCP:8000 -sTCP:LISTEN     # 看什麼程式占用
+docker ps --filter publish=8000       # 或看是哪個容器占用
+```
+
+解法：停掉占用者（`docker stop <容器>`），或改 `compose.yaml` 的 `ports`（例如 `"8001:8000"`），改用 `http://localhost:8001`。
+
 ## 修改方式
 
 `main` 已鎖：不能直接 push，任何修改都要走 PR 且 CI 綠燈才能 merge。
