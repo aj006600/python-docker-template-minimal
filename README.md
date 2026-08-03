@@ -52,6 +52,8 @@ ghcr.io/<your-account>/python-docker-template-minimal:v1.2.0    # 打 tag 發版
 git tag v1.2.0 && git push origin v1.2.0   # 把已在 main 的 commit 發成版本化映像 :v1.2.0
 ```
 
+**映像自動清理**：`.github/workflows/cleanup.yml` 每週跑一次——`:sha` 建置**只留最近 10 個**、**保護 `latest` 與 `v*` 正式版**、刪 untagged。避免映像無限累積。
+
 > 註：GHCR 映像名稱須為小寫，帳號名含大寫時要另做處理。
 
 ## 疑難排解：埠衝突
