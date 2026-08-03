@@ -35,13 +35,21 @@ docker compose up --build              # http://localhost:8000
 `.github/workflows/ci-cd.yml`：
 
 - **test**（push / PR 到 `main`）：`uv sync` + `uv run pytest`
-- **build-and-push**（push 到 `main`）：登入 GHCR → build → push，標籤為 `latest` 與 commit sha
+- **build-and-push**（merge 到 `main`）：登入 GHCR → build → push，標籤為 `latest` 與 commit `sha`
+- **release**（打 `v*` tag）：把該 commit 的 `:sha` 映像**加上版本標籤 `:v1.2.0`**（不重 build）
 
 用內建 `GITHUB_TOKEN`，不需額外設定 secret。映像位置：
 
 ```
 ghcr.io/<your-account>/python-docker-template-minimal:latest
 ghcr.io/<your-account>/python-docker-template-minimal:<git-sha>
+ghcr.io/<your-account>/python-docker-template-minimal:v1.2.0    # 打 tag 發版時
+```
+
+### 怎麼發版
+
+```bash
+git tag v1.2.0 && git push origin v1.2.0   # 把已在 main 的 commit 發成版本化映像 :v1.2.0
 ```
 
 > 註：GHCR 映像名稱須為小寫，帳號名含大寫時要另做處理。
