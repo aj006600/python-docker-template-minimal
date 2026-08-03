@@ -5,6 +5,8 @@ Python 服務容器化的**最精簡**範本：Docker + docker compose + GitHub 
 
 > 設計原則：先給能跑的最小骨架，真正需要時再往上加（healthcheck、多階段建置、快取、多環境設定…）。
 
+> 上 production 前依需要再加的項目（Secrets、TLS、DB、健康檢查、可觀測性、安全掃描、多架構）見 **[docs/roadmap.md](docs/roadmap.md)**；要多環境/部署請用 `python-docker-template-multienv`。
+
 ## 結構
 
 ```
